@@ -35,6 +35,10 @@
             this.campoQuantidade = new System.Windows.Forms.TextBox();
             this.campoPreco = new System.Windows.Forms.TextBox();
             this.botaoSalvar = new System.Windows.Forms.Button();
+            this.campoListagem = new System.Windows.Forms.ListView();
+            this.textoPesquisa = new System.Windows.Forms.Label();
+            this.botaoPesquisa = new System.Windows.Forms.Button();
+            this.campoPesquisa = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textoNomeProd
@@ -97,11 +101,52 @@
             this.botaoSalvar.UseVisualStyleBackColor = true;
             this.botaoSalvar.Click += new System.EventHandler(this.botaoSalvar_Click);
             // 
+            // campoListagem
+            // 
+            this.campoListagem.HideSelection = false;
+            this.campoListagem.Location = new System.Drawing.Point(421, 67);
+            this.campoListagem.Name = "campoListagem";
+            this.campoListagem.Size = new System.Drawing.Size(373, 267);
+            this.campoListagem.TabIndex = 7;
+            this.campoListagem.UseCompatibleStateImageBehavior = false;
+            this.campoListagem.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // textoPesquisa
+            // 
+            this.textoPesquisa.AutoSize = true;
+            this.textoPesquisa.Location = new System.Drawing.Point(418, 38);
+            this.textoPesquisa.Name = "textoPesquisa";
+            this.textoPesquisa.Size = new System.Drawing.Size(64, 16);
+            this.textoPesquisa.TabIndex = 8;
+            this.textoPesquisa.Text = "Pesquisa";
+            this.textoPesquisa.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // botaoPesquisa
+            // 
+            this.botaoPesquisa.Location = new System.Drawing.Point(718, 35);
+            this.botaoPesquisa.Name = "botaoPesquisa";
+            this.botaoPesquisa.Size = new System.Drawing.Size(75, 23);
+            this.botaoPesquisa.TabIndex = 9;
+            this.botaoPesquisa.Text = "Buscar";
+            this.botaoPesquisa.UseVisualStyleBackColor = true;
+            this.botaoPesquisa.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // campoPesquisa
+            // 
+            this.campoPesquisa.Location = new System.Drawing.Point(488, 38);
+            this.campoPesquisa.Name = "campoPesquisa";
+            this.campoPesquisa.Size = new System.Drawing.Size(224, 22);
+            this.campoPesquisa.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 357);
+            this.ClientSize = new System.Drawing.Size(826, 357);
+            this.Controls.Add(this.campoPesquisa);
+            this.Controls.Add(this.botaoPesquisa);
+            this.Controls.Add(this.textoPesquisa);
+            this.Controls.Add(this.campoListagem);
             this.Controls.Add(this.botaoSalvar);
             this.Controls.Add(this.campoPreco);
             this.Controls.Add(this.campoQuantidade);
@@ -126,6 +171,10 @@
         private System.Windows.Forms.TextBox campoQuantidade;
         private System.Windows.Forms.TextBox campoPreco;
         private System.Windows.Forms.Button botaoSalvar;
+        private System.Windows.Forms.ListView campoListagem;
+        private System.Windows.Forms.Label textoPesquisa;
+        private System.Windows.Forms.Button botaoPesquisa;
+        private System.Windows.Forms.TextBox campoPesquisa;
     }
 }
 
