@@ -28,63 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textoNome = new System.Windows.Forms.Label();
-            this.textoEmail = new System.Windows.Forms.Label();
-            this.textoTelefone = new System.Windows.Forms.Label();
-            this.campoNome = new System.Windows.Forms.TextBox();
-            this.campoEmail = new System.Windows.Forms.TextBox();
-            this.campoTelefone = new System.Windows.Forms.TextBox();
+            this.textoNomeProd = new System.Windows.Forms.Label();
+            this.textoQuantidade = new System.Windows.Forms.Label();
+            this.textoPreco = new System.Windows.Forms.Label();
+            this.campoNomeProd = new System.Windows.Forms.TextBox();
+            this.campoQuantidade = new System.Windows.Forms.TextBox();
+            this.campoPreco = new System.Windows.Forms.TextBox();
             this.botaoSalvar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textoNome
+            // textoNomeProd
             // 
-            this.textoNome.AutoSize = true;
-            this.textoNome.Location = new System.Drawing.Point(39, 38);
-            this.textoNome.Name = "textoNome";
-            this.textoNome.Size = new System.Drawing.Size(44, 16);
-            this.textoNome.TabIndex = 0;
-            this.textoNome.Text = "Nome";
-            this.textoNome.Click += new System.EventHandler(this.label1_Click);
+            this.textoNomeProd.AutoSize = true;
+            this.textoNomeProd.Location = new System.Drawing.Point(39, 38);
+            this.textoNomeProd.Name = "textoNomeProd";
+            this.textoNomeProd.Size = new System.Drawing.Size(94, 16);
+            this.textoNomeProd.TabIndex = 0;
+            this.textoNomeProd.Text = "Nome Produto";
+            this.textoNomeProd.UseWaitCursor = true;
+            this.textoNomeProd.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textoEmail
+            // textoQuantidade
             // 
-            this.textoEmail.AutoSize = true;
-            this.textoEmail.Location = new System.Drawing.Point(39, 113);
-            this.textoEmail.Name = "textoEmail";
-            this.textoEmail.Size = new System.Drawing.Size(41, 16);
-            this.textoEmail.TabIndex = 1;
-            this.textoEmail.Text = "Email";
+            this.textoQuantidade.AutoSize = true;
+            this.textoQuantidade.Location = new System.Drawing.Point(39, 113);
+            this.textoQuantidade.Name = "textoQuantidade";
+            this.textoQuantidade.Size = new System.Drawing.Size(77, 16);
+            this.textoQuantidade.TabIndex = 1;
+            this.textoQuantidade.Text = "Quantidade";
             // 
-            // textoTelefone
+            // textoPreco
             // 
-            this.textoTelefone.AutoSize = true;
-            this.textoTelefone.Location = new System.Drawing.Point(36, 199);
-            this.textoTelefone.Name = "textoTelefone";
-            this.textoTelefone.Size = new System.Drawing.Size(61, 16);
-            this.textoTelefone.TabIndex = 2;
-            this.textoTelefone.Text = "Telefone";
+            this.textoPreco.AutoSize = true;
+            this.textoPreco.Location = new System.Drawing.Point(36, 199);
+            this.textoPreco.Name = "textoPreco";
+            this.textoPreco.Size = new System.Drawing.Size(43, 16);
+            this.textoPreco.TabIndex = 2;
+            this.textoPreco.Text = "Preço";
             // 
-            // campoNome
+            // campoNomeProd
             // 
-            this.campoNome.Location = new System.Drawing.Point(39, 67);
-            this.campoNome.Name = "campoNome";
-            this.campoNome.Size = new System.Drawing.Size(334, 22);
-            this.campoNome.TabIndex = 3;
+            this.campoNomeProd.Location = new System.Drawing.Point(39, 67);
+            this.campoNomeProd.Name = "campoNomeProd";
+            this.campoNomeProd.Size = new System.Drawing.Size(334, 22);
+            this.campoNomeProd.TabIndex = 3;
             // 
-            // campoEmail
+            // campoQuantidade
             // 
-            this.campoEmail.Location = new System.Drawing.Point(39, 146);
-            this.campoEmail.Name = "campoEmail";
-            this.campoEmail.Size = new System.Drawing.Size(334, 22);
-            this.campoEmail.TabIndex = 4;
+            this.campoQuantidade.Location = new System.Drawing.Point(39, 146);
+            this.campoQuantidade.Name = "campoQuantidade";
+            this.campoQuantidade.Size = new System.Drawing.Size(334, 22);
+            this.campoQuantidade.TabIndex = 4;
             // 
-            // campoTelefone
+            // campoPreco
             // 
-            this.campoTelefone.Location = new System.Drawing.Point(39, 240);
-            this.campoTelefone.Name = "campoTelefone";
-            this.campoTelefone.Size = new System.Drawing.Size(334, 22);
-            this.campoTelefone.TabIndex = 5;
+            this.campoPreco.Location = new System.Drawing.Point(39, 240);
+            this.campoPreco.Name = "campoPreco";
+            this.campoPreco.Size = new System.Drawing.Size(334, 22);
+            this.campoPreco.TabIndex = 5;
             // 
             // botaoSalvar
             // 
@@ -94,6 +95,7 @@
             this.botaoSalvar.TabIndex = 6;
             this.botaoSalvar.Text = "Salvar";
             this.botaoSalvar.UseVisualStyleBackColor = true;
+            this.botaoSalvar.Click += new System.EventHandler(this.botaoSalvar_Click);
             // 
             // Form1
             // 
@@ -101,12 +103,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 357);
             this.Controls.Add(this.botaoSalvar);
-            this.Controls.Add(this.campoTelefone);
-            this.Controls.Add(this.campoEmail);
-            this.Controls.Add(this.campoNome);
-            this.Controls.Add(this.textoTelefone);
-            this.Controls.Add(this.textoEmail);
-            this.Controls.Add(this.textoNome);
+            this.Controls.Add(this.campoPreco);
+            this.Controls.Add(this.campoQuantidade);
+            this.Controls.Add(this.campoNomeProd);
+            this.Controls.Add(this.textoPreco);
+            this.Controls.Add(this.textoQuantidade);
+            this.Controls.Add(this.textoNomeProd);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -117,12 +119,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label textoNome;
-        private System.Windows.Forms.Label textoEmail;
-        private System.Windows.Forms.Label textoTelefone;
-        private System.Windows.Forms.TextBox campoNome;
-        private System.Windows.Forms.TextBox campoEmail;
-        private System.Windows.Forms.TextBox campoTelefone;
+        private System.Windows.Forms.Label textoNomeProd;
+        private System.Windows.Forms.Label textoQuantidade;
+        private System.Windows.Forms.Label textoPreco;
+        private System.Windows.Forms.TextBox campoNomeProd;
+        private System.Windows.Forms.TextBox campoQuantidade;
+        private System.Windows.Forms.TextBox campoPreco;
         private System.Windows.Forms.Button botaoSalvar;
     }
 }
