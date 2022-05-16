@@ -44,9 +44,20 @@ namespace WindowsFormsCrud
                 MySqlCommand comando = new MySqlCommand(sql, Conexao);
 
                 Conexao.Open();
-                comando.ExecuteReader();
-                MessageBox.Show(" Inserido com SUCESSO! ");
+               
+                MySqlDataReader reader = comando.ExecuteReader();
+                //loop para pegar todos os dados e mostrar na lista
+                while (reader.Read())
+                {
+                    string[] linha =
+                    {
+                        reader.GetString(0),
+                        reader.GetString(1),
+                        reader.GetString(2),
+                    };
 
+                    var linha_lista = new ListViewItem(linha_lista);
+                }
 
             }
             catch (Exception ex)
@@ -61,17 +72,7 @@ namespace WindowsFormsCrud
           
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void botaoPesquisa_Click(object sender, EventArgs e)
         {
             try
             {
