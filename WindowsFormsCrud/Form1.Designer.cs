@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsCrud
 {
-    partial class Form1
+    partial class Sistema
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -50,7 +50,6 @@
             this.textoNomeProd.TabIndex = 0;
             this.textoNomeProd.Text = "Nome Produto";
             this.textoNomeProd.UseWaitCursor = true;
-            this.textoNomeProd.Click += new System.EventHandler(this.label1_Click);
             // 
             // textoQuantidade
             // 
@@ -64,12 +63,11 @@
             // textoPreco
             // 
             this.textoPreco.AutoSize = true;
-            this.textoPreco.Location = new System.Drawing.Point(36, 199);
+            this.textoPreco.Location = new System.Drawing.Point(39, 199);
             this.textoPreco.Name = "textoPreco";
             this.textoPreco.Size = new System.Drawing.Size(43, 16);
             this.textoPreco.TabIndex = 2;
             this.textoPreco.Text = "Preço";
-            this.textoPreco.Click += new System.EventHandler(this.textoPreco_Click);
             // 
             // campoNomeProd
             // 
@@ -120,7 +118,6 @@
             this.textoPesquisa.Size = new System.Drawing.Size(64, 16);
             this.textoPesquisa.TabIndex = 8;
             this.textoPesquisa.Text = "Pesquisa";
-            this.textoPesquisa.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // botaoPesquisa
             // 
@@ -139,7 +136,7 @@
             this.campoPesquisa.Size = new System.Drawing.Size(502, 22);
             this.campoPesquisa.TabIndex = 10;
             // 
-            // Form1
+            // Sistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,9 +152,8 @@
             this.Controls.Add(this.textoPreco);
             this.Controls.Add(this.textoQuantidade);
             this.Controls.Add(this.textoNomeProd);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "Sistema";
+            this.Text = "Sistema Cadastro";
             this.ResumeLayout(false);
             this.PerformLayout();
 

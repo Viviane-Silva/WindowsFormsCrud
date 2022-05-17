@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsCrud
 {
-    public partial class Form1 : Form
+    public partial class Sistema : Form
     {
         MySqlConnection Conexao;
         //cria conexao com o banco de dados
         //https://mysqlconnector.net/connection-options/
         string con = ("server=localhost;user=root;password=;database=crud-ibid");
 
-        public Form1()
+        public Sistema()
         {
             InitializeComponent();
 
@@ -26,21 +26,16 @@ namespace WindowsFormsCrud
             campoListagem.View = View.Details;
             campoListagem.GridLines = true;
             campoListagem.LabelEdit = true;
-            //campoListagem.FullRowSelect = true;
+            campoListagem.FullRowSelect = true;
             //campoListagem.AllowColumnReorder = true;
 
-            campoListagem.Columns.Add("ID", 10, HorizontalAlignment.Left);
-            campoListagem.Columns.Add("Nome Produto", 130, HorizontalAlignment.Left);
-            campoListagem.Columns.Add("Quatidade", 90, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("ID", 50, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("Nome Produto", 230, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("Quatidade", 100, HorizontalAlignment.Left);
             campoListagem.Columns.Add("Preço", 50, HorizontalAlignment.Left);
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
+            //chamada para listagem
+            carregar_listagem();
         }
 
         private void botaoSalvar_Click(object sender, EventArgs e)
@@ -55,8 +50,11 @@ namespace WindowsFormsCrud
                 MySqlCommand comando = new MySqlCommand(sql, Conexao);
 
                 Conexao.Open();
-                comando.ExecuteReader();
+                comando.ExecuteNonQuery();
                 MessageBox.Show(" Inserido com SUCESSO! ");
+                campoNomeProd.Clear();
+                campoQuantidade.Clear();
+                campoPreco.Clear();
 
 
             }
@@ -76,12 +74,6 @@ namespace WindowsFormsCrud
         {
 
         }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void botaoPesquisa_Click_1(object sender, EventArgs e)
         {
@@ -125,9 +117,40 @@ namespace WindowsFormsCrud
             }
         }
 
-        private void textoPreco_Click(object sender, EventArgs e)
+        private void carregar_listagem()
         {
+            try
+            {
+                Conexao = new MySqlConnection(con);
+                Conexao.Open();
 
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = Conexao;
+                cmd.CommandText = "SELECT * FROM db_produto ORDER BY id DESC ";
+                cmd.Parameters.AddWithValue("@busca", "%" + campoPesquisa.Text + "%");
+                cmd.Prepare();
+     
+                MySqlDataReader reader = cmd.ExecuteReader();
+                //campoListagem.Items.Clear();
+
+                while (reader.Read())
+                {
+                    string[] linha =
+                    {
+                        reader.GetString(0),
+                        reader.GetString(1),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                    };
+                }
+
+            }
+            catch
+            {
+
+            }
         }
+
     }
 }
