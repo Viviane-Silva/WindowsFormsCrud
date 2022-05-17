@@ -15,21 +15,25 @@ namespace WindowsFormsCrud
     {
         MySqlConnection Conexao;
         //cria conexao com o banco de dados
+        //https://mysqlconnector.net/connection-options/
         string con = ("server=localhost;user=root;password=;database=crud-ibid");
 
         public Form1()
         {
             InitializeComponent();
+
+            campoListagem.Columns.Add("ID", 30, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("Nome Produto", 130, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("Quatidade", 50, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("Preço", 50, HorizontalAlignment.Left);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void botaoSalvar_Click(object sender, EventArgs e)
@@ -44,20 +48,9 @@ namespace WindowsFormsCrud
                 MySqlCommand comando = new MySqlCommand(sql, Conexao);
 
                 Conexao.Open();
-               
-                MySqlDataReader reader = comando.ExecuteReader();
-                //loop para pegar todos os dados e mostrar na lista
-                while (reader.Read())
-                {
-                    string[] linha =
-                    {
-                        reader.GetString(0),
-                        reader.GetString(1),
-                        reader.GetString(2),
-                    };
+                comando.ExecuteReader();
+                MessageBox.Show(" Inserido com SUCESSO! ");
 
-                    var linha_lista = new ListViewItem(linha_lista);
-                }
 
             }
             catch (Exception ex)
@@ -69,26 +62,53 @@ namespace WindowsFormsCrud
             {
                 Conexao.Close();
             }
-          
+
         }
 
-        private void botaoPesquisa_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void botaoPesquisa_Click_1(object sender, EventArgs e)
         {
             try
             {
                 Conexao = new MySqlConnection(con);
 
-                string busca = "%" + campoPesquisa.Text + "%";
+                string busca = "'%" + campoPesquisa.Text + "%'";
 
-                string sql = "SELECT * FROM db_produto WHERE nome LIKE " +busca+ " OR quantidade "+ busca;
+                string sql = "SELECT * FROM db_produto WHERE nome_produto LIKE " + busca ;
 
                 MySqlCommand comando = new MySqlCommand(sql, Conexao);
-
                 Conexao.Open();
-                comando.ExecuteReader();
 
+                MySqlDataReader leitor = comando.ExecuteReader();
+                campoListagem.Items.Clear();
+
+                //loop para buscar os dados
+                while (leitor.Read())
+                {
+                    string[] linha =
+                    {
+                        leitor.GetString(0),
+                        leitor.GetString(1),
+                        leitor.GetString(2),
+                        leitor.GetString(3),
+                    };
+
+                    var linhaListagem = new ListViewItem(linha);
+
+                    campoListagem.Items.Add(linhaListagem.Text);
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
@@ -96,6 +116,11 @@ namespace WindowsFormsCrud
             {
                 Conexao.Close();
             }
+        }
+
+        private void textoPreco_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

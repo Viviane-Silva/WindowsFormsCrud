@@ -69,6 +69,7 @@
             this.textoPreco.Size = new System.Drawing.Size(43, 16);
             this.textoPreco.TabIndex = 2;
             this.textoPreco.Text = "Preço";
+            this.textoPreco.Click += new System.EventHandler(this.textoPreco_Click);
             // 
             // campoNomeProd
             // 
@@ -106,7 +107,7 @@
             this.campoListagem.HideSelection = false;
             this.campoListagem.Location = new System.Drawing.Point(421, 67);
             this.campoListagem.Name = "campoListagem";
-            this.campoListagem.Size = new System.Drawing.Size(373, 267);
+            this.campoListagem.Size = new System.Drawing.Size(685, 267);
             this.campoListagem.TabIndex = 7;
             this.campoListagem.UseCompatibleStateImageBehavior = false;
             this.campoListagem.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -123,26 +124,26 @@
             // 
             // botaoPesquisa
             // 
-            this.botaoPesquisa.Location = new System.Drawing.Point(718, 35);
+            this.botaoPesquisa.Location = new System.Drawing.Point(1011, 38);
             this.botaoPesquisa.Name = "botaoPesquisa";
-            this.botaoPesquisa.Size = new System.Drawing.Size(75, 23);
+            this.botaoPesquisa.Size = new System.Drawing.Size(95, 23);
             this.botaoPesquisa.TabIndex = 9;
             this.botaoPesquisa.Text = "Buscar";
             this.botaoPesquisa.UseVisualStyleBackColor = true;
-            this.botaoPesquisa.Click += new System.EventHandler(this.button1_Click);
+            this.botaoPesquisa.Click += new System.EventHandler(this.botaoPesquisa_Click_1);
             // 
             // campoPesquisa
             // 
             this.campoPesquisa.Location = new System.Drawing.Point(488, 38);
             this.campoPesquisa.Name = "campoPesquisa";
-            this.campoPesquisa.Size = new System.Drawing.Size(224, 22);
+            this.campoPesquisa.Size = new System.Drawing.Size(502, 22);
             this.campoPesquisa.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 357);
+            this.ClientSize = new System.Drawing.Size(1144, 357);
             this.Controls.Add(this.campoPesquisa);
             this.Controls.Add(this.botaoPesquisa);
             this.Controls.Add(this.textoPesquisa);
