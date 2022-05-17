@@ -87,9 +87,8 @@ namespace WindowsFormsCrud
                     MessageBox.Show("Atualizado com SUCESSO! ");
                     // carregar_listagem();
 
-                    campoNomeProd.Clear();
-                    campoQuantidade.Clear();
-                    campoPreco.Clear();
+                    limpar_campos();
+
 
                 }
 
