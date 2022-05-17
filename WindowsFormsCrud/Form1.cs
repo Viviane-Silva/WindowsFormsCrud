@@ -22,9 +22,16 @@ namespace WindowsFormsCrud
         {
             InitializeComponent();
 
-            campoListagem.Columns.Add("ID", 30, HorizontalAlignment.Left);
+            //contrução colunas campo listagem
+            campoListagem.View = View.Details;
+            campoListagem.GridLines = true;
+            campoListagem.LabelEdit = true;
+            //campoListagem.FullRowSelect = true;
+            //campoListagem.AllowColumnReorder = true;
+
+            campoListagem.Columns.Add("ID", 10, HorizontalAlignment.Left);
             campoListagem.Columns.Add("Nome Produto", 130, HorizontalAlignment.Left);
-            campoListagem.Columns.Add("Quatidade", 50, HorizontalAlignment.Left);
+            campoListagem.Columns.Add("Quatidade", 90, HorizontalAlignment.Left);
             campoListagem.Columns.Add("Preço", 50, HorizontalAlignment.Left);
         }
 
@@ -105,7 +112,7 @@ namespace WindowsFormsCrud
 
                     var linhaListagem = new ListViewItem(linha);
 
-                    campoListagem.Items.Add(linhaListagem.Text);
+                    campoListagem.Items.Add(linhaListagem);
                 }
             }
             catch (Exception ex)
