@@ -19,7 +19,7 @@ namespace WindowsFormsCrud
         string con = ("server=localhost;user=root;password=;database=crud-ibid");
 
 
-        private int ?id_produto = null;
+        private int? id_produto = null;
 
 
         public Sistema()
@@ -49,14 +49,14 @@ namespace WindowsFormsCrud
         {
             try
             {
-                
+
                 Conexao = new MySqlConnection(con);
                 Conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao;
 
-                if(id_produto == null)
+                if (id_produto == null )
                 {
                     //insere novo produto
                     cmd.CommandText = "INSERT INTO db_produto (nomeproduto,quantidade,preco) VALUES (@nomeproduto,@quantidade,@preco)";
@@ -64,18 +64,19 @@ namespace WindowsFormsCrud
                     cmd.Parameters.AddWithValue("@nomeproduto", campoNomeProd.Text);
                     cmd.Parameters.AddWithValue("@quantidade", campoQuantidade.Text);
                     cmd.Parameters.AddWithValue("@preco", campoPreco.Text);
- 
-                    
+
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show(" Inserido com SUCESSO! ");
-                    
+
                     campoNomeProd.Clear();
                     campoQuantidade.Clear();
                     campoPreco.Clear();
 
 
-               }
-               else
+
+                }
+                else
                 {
                     //atualiza produto 
                     cmd.CommandText = "UPDATE db_produto SET nomeproduto=@nomeproduto, quantidade=@quantidade, preco=@preco WHERE id=@id";
@@ -86,8 +87,8 @@ namespace WindowsFormsCrud
                     cmd.Parameters.AddWithValue("@id", id_produto);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show(" Inserido com SUCESSO! ");
-                   // carregar_listagem();
+                    MessageBox.Show("Atualizado com SUCESSO! ");
+                    // carregar_listagem();
 
                     campoNomeProd.Clear();
                     campoQuantidade.Clear();
@@ -119,9 +120,9 @@ namespace WindowsFormsCrud
             ListView.SelectedListViewItemCollection itens_selecionados = campoListagem.SelectedItems;
 
             //loop para pegar os dados do item selecionado
-            foreach(ListViewItem itens in itens_selecionados)
+            foreach (ListViewItem itens in itens_selecionados)
             {
-                id_produto = Convert.ToInt32(itens.SubItems[0].Text); 
+                id_produto = Convert.ToInt32(itens.SubItems[0].Text);
                 campoNomeProd.Text = itens.SubItems[1].Text;
                 campoQuantidade.Text = itens.SubItems[2].Text;
                 campoPreco.Text = itens.SubItems[3].Text;
@@ -138,13 +139,13 @@ namespace WindowsFormsCrud
 
                 string busca = "'%" + campoPesquisa.Text + "%'";
 
-                string sql = "SELECT * FROM db_produto WHERE nomeproduto LIKE " + busca ;
+                string sql = "SELECT * FROM db_produto WHERE nomeproduto LIKE " + busca;
 
                 MySqlCommand comando = new MySqlCommand(sql, Conexao);
                 Conexao.Open();
 
                 MySqlDataReader leitor = comando.ExecuteReader();
-               campoListagem.Items.Clear();
+                campoListagem.Items.Clear();
 
                 //loop para buscar os dados
                 while (leitor.Read())
@@ -187,7 +188,7 @@ namespace WindowsFormsCrud
                 cmd.Connection = Conexao;
                 cmd.CommandText = "SELECT * FROM db_produto ORDER BY id DESC ";
                 cmd.Prepare();
-    
+
 
                 MySqlDataReader reader = cmd.ExecuteReader();
                 //campoListagem.Items.Clear();
@@ -206,7 +207,7 @@ namespace WindowsFormsCrud
                 }
 
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
@@ -216,5 +217,62 @@ namespace WindowsFormsCrud
             }
         }
 
+
+        private void botaoExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Conexao = new MySqlConnection(con);
+                Conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Conexao;
+
+
+                cmd.CommandText = "DELETE FROM db_produto WHERE id=@id";
+                //cmd.Prepare();
+                cmd.Parameters.AddWithValue("@id", id_produto);
+                cmd.ExecuteNonQuery();
+
+                DialogResult confirmacao = MessageBox.Show(" Excluir este produto? ", "Confirmar Exclusão", MessageBoxButtons.YesNo);
+
+                if (confirmacao == DialogResult.Yes)
+                {
+                    //produto deletado da base
+                    MessageBox.Show("Produto excluido com Sucesso!");
+
+                }
+                //limpar tela e atualizar listagem
+                campoListagem.Items.Clear();
+                carregar_listagem();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+
+        }
+
+
+        private void excluirPrdut_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void botaoLimpar_Click(object sender, EventArgs e)
+        {
+            limpar_campos();
+        }
+
+        private void limpar_campos()
+        {
+            id_produto = null;
+            campoNomeProd.Text = String.Empty;
+            campoQuantidade.Text = "";
+            campoPreco.Text = "";
+        }
     }
 }

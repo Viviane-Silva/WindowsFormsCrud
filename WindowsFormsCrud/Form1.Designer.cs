@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textoNomeProd = new System.Windows.Forms.Label();
             this.textoQuantidade = new System.Windows.Forms.Label();
             this.textoPreco = new System.Windows.Forms.Label();
@@ -39,6 +40,11 @@
             this.textoPesquisa = new System.Windows.Forms.Label();
             this.botaoPesquisa = new System.Windows.Forms.Button();
             this.campoPesquisa = new System.Windows.Forms.TextBox();
+            this.Adicionar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.excluirProduto = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.excluirPrdut = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirProduto.SuspendLayout();
             this.SuspendLayout();
             // 
             // textoNomeProd
@@ -92,9 +98,9 @@
             // 
             // botaoSalvar
             // 
-            this.botaoSalvar.Location = new System.Drawing.Point(258, 305);
+            this.botaoSalvar.Location = new System.Drawing.Point(164, 305);
             this.botaoSalvar.Name = "botaoSalvar";
-            this.botaoSalvar.Size = new System.Drawing.Size(115, 29);
+            this.botaoSalvar.Size = new System.Drawing.Size(94, 29);
             this.botaoSalvar.TabIndex = 6;
             this.botaoSalvar.Text = "Salvar";
             this.botaoSalvar.UseVisualStyleBackColor = true;
@@ -109,6 +115,7 @@
             this.campoListagem.TabIndex = 7;
             this.campoListagem.UseCompatibleStateImageBehavior = false;
             this.campoListagem.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.campoListagem.ContextMenuStripChanged += new System.EventHandler(this.botaoExcluir_Click);
             // 
             // textoPesquisa
             // 
@@ -136,11 +143,48 @@
             this.campoPesquisa.Size = new System.Drawing.Size(502, 22);
             this.campoPesquisa.TabIndex = 10;
             // 
+            // Adicionar
+            // 
+            this.Adicionar.Location = new System.Drawing.Point(39, 305);
+            this.Adicionar.Name = "Adicionar";
+            this.Adicionar.Size = new System.Drawing.Size(94, 29);
+            this.Adicionar.TabIndex = 11;
+            this.Adicionar.Text = "Limpar";
+            this.Adicionar.UseVisualStyleBackColor = true;
+            this.Adicionar.Click += new System.EventHandler(this.botaoLimpar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(279, 305);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Excluir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.botaoExcluir_Click);
+            // 
+            // excluirProduto
+            // 
+            this.excluirProduto.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.excluirProduto.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excluirPrdut});
+            this.excluirProduto.Name = "excluirProduto";
+            this.excluirProduto.Size = new System.Drawing.Size(122, 28);
+            // 
+            // excluirPrdut
+            // 
+            this.excluirPrdut.Name = "excluirPrdut";
+            this.excluirPrdut.Size = new System.Drawing.Size(121, 24);
+            this.excluirPrdut.Text = "Excluir";
+            this.excluirPrdut.Click += new System.EventHandler(this.excluirPrdut_Click);
+            // 
             // Sistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1144, 357);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Adicionar);
             this.Controls.Add(this.campoPesquisa);
             this.Controls.Add(this.botaoPesquisa);
             this.Controls.Add(this.textoPesquisa);
@@ -154,6 +198,7 @@
             this.Controls.Add(this.textoNomeProd);
             this.Name = "Sistema";
             this.Text = "Sistema Cadastro";
+            this.excluirProduto.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +217,10 @@
         private System.Windows.Forms.Label textoPesquisa;
         private System.Windows.Forms.Button botaoPesquisa;
         private System.Windows.Forms.TextBox campoPesquisa;
+        private System.Windows.Forms.Button Adicionar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip excluirProduto;
+        private System.Windows.Forms.ToolStripMenuItem excluirPrdut;
     }
 }
 
