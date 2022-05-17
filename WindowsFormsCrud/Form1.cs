@@ -56,6 +56,7 @@ namespace WindowsFormsCrud
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao;
 
+
                 if (id_produto == null )
                 {
                     //insere novo produto
@@ -69,11 +70,7 @@ namespace WindowsFormsCrud
                     cmd.ExecuteNonQuery();
                     MessageBox.Show(" Inserido com SUCESSO! ");
 
-                    campoNomeProd.Clear();
-                    campoQuantidade.Clear();
-                    campoPreco.Clear();
-
-
+                    limpar_campos();
 
                 }
                 else
