@@ -1,5 +1,6 @@
 # Entrega do desafio para vaga de estágio
  Conforme solicitado pelo desafio, foi desenvolvido uma aplicação Windows Forms na linguagem C#
+ 
  O desenvolvimento desta aplicação permite cadastrar, alterar e remover itens da tela de listagem.
 
 ## Intruções para executar o programa:
