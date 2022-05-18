@@ -5,7 +5,7 @@
 ## Intruções para executar o programa:
  * IDE Visual Studio 2022 instalado
  * .Net FRAMEWORK 4.6 instalado
- * MySql.Data instalado
+ * Pacote Nuggets MySql.Data instalado dentro da IDE
 
 ## Links utilizados para apoio no desenvolvimento do desafio:
   * Documentação [MySql]([https://dev.mysql.com/doc/dev/connector-net/6.10/html/T_MySql_Data_MySqlClient_MySqlConnection.htm](https://dev.mysql.com/doc/connector-net/en/connector-net-programming-prepared.html))
