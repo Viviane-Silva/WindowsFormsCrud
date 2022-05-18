@@ -14,3 +14,4 @@
   * Documentação [Oracle](https://docs.oracle.com/cd/E17952_01/connector-net-en/connector-net-ref-mysqlclient.html)
   * Tutorial [Dev MySql](https://dev.mysql.com/doc/dev/connector-net/6.10/html/T_MySql_Data_MySqlClient_MySqlConnection.htm)
   * Tutorial [C#+MySql](https://zetcode.com/csharp/mysql/)
+  * [Youtube](https://www.youtube.com/)
